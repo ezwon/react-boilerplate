@@ -6,30 +6,17 @@
 
 import { fromJS } from 'immutable';
 import {
-  DEFAULT_ACTION,
+  REQUEST_TOPICS_SUCCEEDED,
 } from './constants';
 
 const initialState = fromJS({
-  topics: [
-    {
-      name: '1',
-      description: 'aaa',
-    },
-    {
-      name: '2',
-      description: 'bbb',
-    },
-    {
-      name: '3',
-      description: 'ccc',
-    },
-  ],
+  topics: [],
 });
 
 function navigationContainerReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case REQUEST_TOPICS_SUCCEEDED:
+      return state.set('topics', action.topics);
     default:
       return state;
   }

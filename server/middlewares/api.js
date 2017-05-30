@@ -9,7 +9,7 @@ function setupDb() {
     .value();
 
   const topic1 = {
-    name: 'libraries',
+    name: 'librariesxx',
     description: 'links to useful open source libraries',
   };
 
