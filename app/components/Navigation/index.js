@@ -1,18 +1,29 @@
 /**
-*
-* Navigation
-*
-*/
+ *
+ * Navigation
+ *
+ */
 
 import React from 'react';
 
-
+import AppBar from '../AppBar';
 import styles from './styles.css';
+import Drawer from '../Drawer';
 
-function Navigation({ topics }) {
+function Navigation({ topics, selectTopic, toggleDrawer, isDrawerOpen }) {
   return (
     <div className={styles.navigation}>
-      We have {topics.length} topics!
+      <AppBar
+        toggleDrawer={toggleDrawer}
+      />
+
+      <Drawer
+        items={topics}
+        selectItem={selectTopic}
+        itemLabelAttr="name"
+        itemKeyAttr="name"
+        isDrawerOpen={isDrawerOpen}
+      />
     </div>
   );
 }
@@ -24,6 +35,9 @@ Navigation.propTypes = {
       description: React.PropTypes.string.isRequired,
     })
   ).isRequired,
+  selectTopic: React.PropTypes.func.isRequired,
+  toggleDrawer: React.PropTypes.func.isRequired,
+  isDrawerOpen: React.PropTypes.bool.isRequired,
 };
 
 export default Navigation;
